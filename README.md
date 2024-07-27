@@ -1,7 +1,7 @@
 # React Learning
 
-- Handling events
-- State to update the UI
+- Handling basic events
+- The basics of State, and how to update the UI
 
 # React + Vite
 
