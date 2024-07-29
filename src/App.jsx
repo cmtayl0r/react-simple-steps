@@ -38,7 +38,7 @@ function App() {
         &times;
       </button>
 
-      {/* Hide / show button */}
+      {/* Panel toggle visibility, if isOpen === true then display */}
       {isOpen && (
         <div className="steps">
           <div className="numbers">
