@@ -18,15 +18,17 @@ function App() {
 
   const handlePrevious = () => {
     // handle previous click
-    if (step > 1) setStep(step - 1);
+    // best practice to use a callback function in the setter function arg...
+    // when you want to update state based on the current value.
+    if (step > 1) setStep(s => s - 1);
   };
   const handleNext = () => {
     // handle next click
-    if (step < 3) setStep(step + 1);
+    if (step < 3) setStep(s => s + 1);
   };
 
   const handleIsOpen = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(is => !is);
   };
 
   return (
@@ -40,9 +42,9 @@ function App() {
       {isOpen && (
         <div className="steps">
           <div className="numbers">
-            <div className={step >= 1 ? "active" : ""}>1</div>
-            <div className={step >= 2 ? "active" : ""}>2</div>
-            <div className={step >= 3 ? "active" : ""}>3</div>
+            <div className={step === 1 ? "active" : ""}>1</div>
+            <div className={step === 2 ? "active" : ""}>2</div>
+            <div className={step === 3 ? "active" : ""}>3</div>
           </div>
 
           <p className="message">
