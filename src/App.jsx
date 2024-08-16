@@ -47,12 +47,14 @@ function App() {
             <div className={step === 3 ? "active" : ""}>3</div>
           </div>
 
-          <p className="message">
+          {/* Component utilising children prop */}
+          <StepMessage step={step}>
             {/* Display the message from array based on the current step */}
-            Step {step}: {messages[step - 1]}
-          </p>
+            {messages[step - 1]}
+          </StepMessage>
 
           <div className="buttons">
+            {/* Components utilising children prop */}
             <Button textColor="#FFF" bgColor="#7950f2" onClick={handlePrevious}>
               <span>⬅️</span> Previous
             </Button>
@@ -63,6 +65,15 @@ function App() {
         </div>
       )}
     </>
+  );
+}
+
+function StepMessage({ step, children }) {
+  return (
+    <div className="message">
+      <h3>Step {step}:</h3>
+      {children}
+    </div>
   );
 }
 
