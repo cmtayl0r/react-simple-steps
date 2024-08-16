@@ -35,7 +35,7 @@ function App() {
     <>
       {/* Hide / show button */}
       <button className="close" onClick={handleIsOpen}>
-        &times;
+        {isOpen ? `❌` : `👀`}
       </button>
 
       {/* Panel toggle visibility, if isOpen === true then display */}
@@ -53,22 +53,33 @@ function App() {
           </p>
 
           <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#FFF" }}
+            <Button
+              textColor="#FFF"
+              bgColor="#7950f2"
               onClick={handlePrevious}
-            >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#FFF" }}
+              text={"Previous"}
+            />
+            <Button
+              textColor="#FFF"
+              bgColor="#7950f2"
               onClick={handleNext}
-            >
-              Next
-            </button>
+              text={"Next"}
+            />
           </div>
         </div>
       )}
     </>
+  );
+}
+
+function Button({ textColor, bgColor, onClick, text }) {
+  return (
+    <button
+      style={{ backgroundColor: bgColor, color: textColor }}
+      onClick={onClick}
+    >
+      {text}
+    </button>
   );
 }
 
